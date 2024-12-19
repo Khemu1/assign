@@ -5,12 +5,14 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   /** @type {HTMLInputElement} */
   const countryName = form.countryName.value;
+
+  // i do recommend handing country names before calling
   fetchWeather(countryName);
 });
 
 /**
  * fetches weather data for a given country
- * @param {string} countryName - The name of the country
+ * @param {string} countryName 
  * @returns {Promise<void>}
  */
 const fetchWeather = async (countryName) => {
@@ -25,7 +27,7 @@ const fetchWeather = async (countryName) => {
       throw new Error(`Error: ${response.status}`);
     }
 
-    /** @type {import("./types.js.d.ts").WeatherForecast} */
+    /** @type {import("./types/types.js.js").WeatherForecast} */
     const data = await response.json();
 
     console.log(`3-day weather forecast for ${data.location.name}:`);
@@ -41,7 +43,7 @@ const fetchWeather = async (countryName) => {
 
 /**
  * displays weather conditions in the console
- * @param {{forecastDays: import("./types.js.d.ts").ForecastDay[]}} forecastDays
+ * @param {{forecastDays: import("./types/types.js.js").ForecastDay[]}} forecastDays
  */
 const displayWeather = ({ forecastDays }) => {
   weatherDiv.innerHTML = forecastDays
