@@ -6,7 +6,7 @@ form.addEventListener("submit", (event) => {
   /** @type {HTMLInputElement} */
   const countryName = form.countryName.value;
 
-  // i do recommend handing country names before calling
+  // i do recommend handling country names before calling
   fetchWeather(countryName);
 });
 
@@ -16,7 +16,7 @@ form.addEventListener("submit", (event) => {
  * @returns {Promise<void>}
  */
 const fetchWeather = async (countryName) => {
-  const apiKey = "1832e4aa3fd14c0992982705241912"; // your private API key
+  const apiKey = ""; // your private API key
   const days = 3;
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${countryName}&days=${days}`;
 
