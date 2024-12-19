@@ -27,7 +27,7 @@ const fetchWeather = async (countryName) => {
       throw new Error(`Error: ${response.status}`);
     }
 
-    /** @type {import("./types/types.js.js").WeatherForecast} */
+    /** @type {import("./types/types.js").WeatherForecast} */
     const data = await response.json();
 
     console.log(`3-day weather forecast for ${data.location.name}:`);
@@ -43,7 +43,7 @@ const fetchWeather = async (countryName) => {
 
 /**
  * displays weather conditions in the console
- * @param {{forecastDays: import("./types/types.js.js").ForecastDay[]}} forecastDays
+ * @param {{forecastDays: import("./types/types.js").ForecastDay[]}} forecastDays
  */
 const displayWeather = ({ forecastDays }) => {
   weatherDiv.innerHTML = forecastDays
